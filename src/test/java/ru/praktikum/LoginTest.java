@@ -49,7 +49,7 @@ public class LoginTest {
         mainPage.clickLoginButton();
         LoginPage loginPage = new LoginPage(driver);
         loginPage.login(user.getEmail(), user.getPassword());
-        Assert.assertEquals( "Url не соответствует mainPage", MAIN_URL, driver.getCurrentUrl());
+        Assert.assertTrue(mainPage.isDisplayedCheckoutButton());
     }
 
     @Test
@@ -60,7 +60,7 @@ public class LoginTest {
         mainPage.clickPrivateOfficeLink();
         LoginPage loginPage = new LoginPage(driver);
         loginPage.login(user.getEmail(), user.getPassword());
-        Assert.assertEquals( "Url не соответствует mainPage", MAIN_URL, driver.getCurrentUrl());
+        Assert.assertTrue(mainPage.isDisplayedCheckoutButton());
     }
 
     @Test
@@ -71,7 +71,8 @@ public class LoginTest {
         registrationPage.clickLoginLink();
         LoginPage loginPage = new LoginPage(driver);
         loginPage.login(user.getEmail(), user.getPassword());
-        Assert.assertEquals( "Url не соответствует mainPage", MAIN_URL, driver.getCurrentUrl());
+        MainPage mainPage = new MainPage(driver);
+        Assert.assertTrue(mainPage.isDisplayedCheckoutButton());
     }
 
     @Test
@@ -82,6 +83,7 @@ public class LoginTest {
         forgotPasswordPage.clickLoginLink();
         LoginPage loginPage = new LoginPage(driver);
         loginPage.login(user.getEmail(), user.getPassword());
-        Assert.assertEquals( "Url не соответствует mainPage", MAIN_URL, driver.getCurrentUrl());
+        MainPage mainPage = new MainPage(driver);
+        Assert.assertTrue(mainPage.isDisplayedCheckoutButton());
     }
 }

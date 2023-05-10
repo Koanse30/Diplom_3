@@ -16,6 +16,7 @@ public class MainPage {
     private final By bunSectionTab = By.xpath("//div[@style=\"display: flex;\"]//div[1]");
     private final By sauceSectionTab = By.xpath("//div[@style=\"display: flex;\"]//div[2]");
     private final By fillingSectionTab = By.xpath("//div[@style=\"display: flex;\"]//div[3]");
+    private final By checkoutButton = By.xpath("//button[text()=\"Оформить заказ\"]");
 
     public void clickLoginButton() {driver.findElement(loginButton).click();}
     public void clickPrivateOfficeLink() {driver.findElement(privateOfficeLink).click();}
@@ -31,5 +32,9 @@ public class MainPage {
     }
     public boolean isSelectedFilling() {
         return driver.findElement(fillingSectionTab).getAttribute("class").contains("tab_tab_type_current__2BEPc");
+    }
+
+    public boolean isDisplayedCheckoutButton() {
+        return driver.findElement(checkoutButton).isDisplayed();
     }
 }
